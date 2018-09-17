@@ -85,8 +85,8 @@ class Node:
 					print("---------------------------------------------------------------")
 					'''
 					
-					#for i in self.list_children:
-						#print(get_hex_move(i.move))
+					for i in self.list_children:
+						print(get_hex_move(i.move))
 						#print(i.board)
 					
 					for i in self.list_children:	
@@ -94,7 +94,6 @@ class Node:
 						#print (rows_formed(i.board, 0))
 						#print (get_hex_move(i.move))	
 						if (rows_formed(i.board, 0) or rows_formed(i.board, 1))!= []:
-							#print("asdasdasdasd")
 							#print (get_hex_move(i.move))
 							#print (rows_formed(i.board, 0))
 							if i.won == 0:
@@ -138,10 +137,10 @@ def get_tree(num, board, num_moves):
 	if num == 1:
 		if num_moves < 25:
 			root.append_children(num, 0)
-			#for i in root.list_children:
-				#print("-------")
-				#print (get_hex_move(i.move))
-				#print("-----")
+			for i in root.list_children:
+				print("-------")
+				print (get_hex_move(i.move))
+				print("-----")
 				#i.append_children(num, 1)
 				#for j in i.list_children:
 					#j.append_children(num, 0)
@@ -159,7 +158,7 @@ def get_tree(num, board, num_moves):
 			
 
 def min_val(node, alpha, beta, player):
-	#print "AlphaBeta-->MIN: Visited Node :: " + str(get_hex_move(node.move))
+	print "AlphaBeta-->MIN: Visited Node :: " + str(get_hex_move(node.move))
 	if node.list_children == []:
 		node.utility = evaluate(node.board, player) 
 		return node.utility
@@ -179,7 +178,7 @@ def min_val(node, alpha, beta, player):
 
 
 def max_val(node, alpha, beta, player):
-	#print "AlphaBeta-->MAX: Visited Node :: " + str(get_hex_move(node.move))
+	print "AlphaBeta-->MAX: Visited Node :: " + str(get_hex_move(node.move))
 	if node.list_children == []:
 		node.utility = evaluate(node.board, player) 
 		#print(node.utility)
